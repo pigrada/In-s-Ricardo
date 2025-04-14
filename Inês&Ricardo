@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>8 Meses com Minha Parreca</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #ffe6f0;
+      color: #333;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .mensagem {
+      font-size: 1.5em;
+      margin: 20px 0;
+      color: #b30059;
+    }
+
+    #contador {
+      font-size: 2em;
+      font-weight: bold;
+      color: #99004d;
+      margin-bottom: 30px;
+    }
+
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .galeria img {
+      width: 200px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Feliz 8 Meses, Amor!</h1>
+  <div class="mensagem">"Sem ti o mundo era totalmente diferente — sua Parreca"</div>
+
+  <div id="contador">Carregando o tempo de amor...</div>
+
+  <div class="galeria">
+    <!-- Aqui você pode adicionar imagens depois -->
+    <!-- Exemplo: <img src="fotos/nos1.jpg" alt="Nós dois"> -->
+  </div>
+
+  <script>
+    const inicio = new Date('2023-08-15T00:03:00');
+
+    function atualizarTempo() {
+      const agora = new Date();
+      const diff = agora - inicio;
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diff / (1000 * 60)) % 60);
+      const segundos = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("contador").innerText =
+        `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos juntos.`;
+    }
+
+    setInterval(atualizarTempo, 1000);
+    atualizarTempo();
+  </script>
+
+</body>
+</html>
