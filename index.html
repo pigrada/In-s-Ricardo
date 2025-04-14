@@ -1,81 +1,92 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
-  <meta charset="UTF-8">
-  <title>8 Meses com Minha Parreca</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <titleParreca & Amor</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background: #ffe6f0;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdfdfd;
       color: #333;
-      text-align: center;
-      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 1.8em;
       margin-bottom: 10px;
     }
 
-    .mensagem {
-      font-size: 1.5em;
-      margin: 20px 0;
-      color: #b30059;
-    }
-
-    #contador {
-      font-size: 2em;
-      font-weight: bold;
-      color: #99004d;
+    .timer {
+      font-size: 1.2em;
       margin-bottom: 30px;
     }
 
-    .galeria {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 20px;
+      max-width: 600px;
+      width: 100%;
     }
 
-    .galeria img {
-      width: 200px;
-      height: auto;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    .gallery img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-style: italic;
+      font-size: 1em;
+      color: #777;
+    }
+
+    @media (min-width: 600px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
 <body>
+  <h1>Para nunca te esqueceres do nosso dia até ao infinito</h1>
+  <div class="timer" id="contador"></div>
 
-  <h1>Feliz 8 Meses, Amor!</h1>
-  <div class="mensagem">"Sem ti o mundo era totalmente diferente — sua Parreca"</div>
+  <div class="gallery">
+    <img src="foto1.jpg" alt="Nós 1" />
+    <img src="foto2.jpg" alt="Nós 2" />
+    <img src="foto3.jpg" alt="Nós 3" />
+  </div>
 
-  <div id="contador">Carregando o tempo de amor...</div>
-
-  <div class="galeria">
-    <!-- Aqui você pode adicionar imagens depois -->
-    <!-- Exemplo: <img src="fotos/nos1.jpg" alt="Nós dois"> -->
+  <div class="footer">
+    Com amor, tua Parreca
   </div>
 
   <script>
-    const inicio = new Date('2023-08-15T00:03:00');
+    const inicio = new Date("2024-08-15T00:03:00");
 
-    function atualizarTempo() {
+    function atualizarContador() {
       const agora = new Date();
-      const diff = agora - inicio;
+      const tempo = agora - inicio;
 
-      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutos = Math.floor((diff / (1000 * 60)) % 60);
-      const segundos = Math.floor((diff / 1000) % 60);
+      const dias = Math.floor(tempo / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((tempo / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((tempo / (1000 * 60)) % 60);
+      const segundos = Math.floor((tempo / 1000) % 60);
 
-      document.getElementById("contador").innerText =
-        `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos juntos.`;
+      document.getElementById("contador").textContent =
+        `Juntos há ${dias} dias, ${horas}h ${minutos}m ${segundos}s`;
     }
 
-    setInterval(atualizarTempo, 1000);
-    atualizarTempo();
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
   </script>
-
 </body>
 </html>
+
